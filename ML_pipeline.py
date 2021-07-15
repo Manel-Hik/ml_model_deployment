@@ -46,11 +46,12 @@ from sklearn.metrics import classification_report
 print(classification_report(y_test,y_pred))
  
 new_prediction = classifier.predict(sc.transform(np.array([[40,20000]])))
-#♦check the proba of that prediction
+#check the proba of that prediction
 new_prediction_proba = classifier.predict_proba(sc.transform(np.array([[40,20000]])))[:,1]
  
 import pickle
 model_file = "classifier.pickle"
+
 #store the classifier created earlier to this file and the scaler
 pickle.dump(classifier,open(model_file,'wb'))
 scaler_file = "sc.pickle"
